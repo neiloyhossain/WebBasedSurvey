@@ -1,0 +1,185 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: green;
+    color: white;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.survey-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+
+.survey-button {
+    background-color: hsl(143, 79%, 15%);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.survey-button:hover {
+    background-color: hsl(161, 77%, 42%);
+}
+
+/* Light/Dark Mode Toggle Container */
+.mode-switch-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: center;
+}
+
+.dark-mode {
+    background-color: #030202;
+    color: #fff;
+}
+body.dark-mode .survey-button {
+    background-color: #1e96b7; /* Dark background for button */
+    color: #f4f4f4; /* Light text color */
+}
+
+/* Hover effect for Dark Mode */
+body.dark-mode .survey-button:hover {
+    background-color:  #13b6e4; /* Lighter shade for hover effect */
+}
+
+body.dark-mode header{
+    background-color: #222; /* Darker background for header */
+    color: #948c8c; /* Light text color */
+
+}
+
+body.dark-mode footer{
+    color: #948c8c;
+}
+
+
+/* Dark Mode Styles */
+body.dark {
+    background-color: #333; /* Dark background */
+    color: #f4f4f4; /* Light text color */
+}
+
+
+body.dark .slider {
+    background-color: #555; /* Slider background in dark mode */
+}
+
+body.dark .slider:before {
+    background-color: #222; /* Slider handle in dark mode */
+}
+
+
+/* Mode Label Styling */
+#mode-label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+/* Light/Dark Mode Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    display: none;
+}
+
+.switch .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 26px;
+    transition: background-color 0.3s;
+}
+
+.switch .slider:before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+input:checked + .slider {
+    background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/*Styling for footer links*/
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+.footer-links a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+

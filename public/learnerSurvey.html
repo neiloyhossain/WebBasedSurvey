@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+</head>
+<body>
+    <div class="home-button-container">
+        <a href="/" class="home-button">Home</a>
+    </div>
+
+    <div class="mode-switch-container">
+        <label id="mode-label">Light/Dark Mode</label>
+        <label class="switch">
+            <input type="checkbox" id="mode-toggle" onclick="toggleMode()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    
+    <div class="progress-container">
+        <div class="progress-label" id="progress-label">Done!</div>
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="progress-marker" style="top: 25%;"></div> <!-- 5 questions marker -->
+        <div class="progress-marker" style="top: 50%;"></div> <!-- 10 questions marker -->
+        <div class="progress-marker" style="top: 75%;"></div> <!-- 15 questions marker -->
+    </div>
+
+    <div class="font-size-controls">
+        <button onclick="decreaseFontSize()">−</button>
+        <span>Font Size</span>
+        <button onclick="increaseFontSize()">+</button>
+    </div>
+
+    <div class="main-container">
+    <div class="survey-container" id="survey">
+        <div class="survey-title">
+            <h2>Undestand what type of learner you are!</h2>
+        </div>
+
+        <h3>Learning Preferences</h3>
+
+        <div class="question-tile">
+            
+            <label for="Cat1_Q1_Score">How effective are visual aids (e.g., diagrams, charts, videos) in helping you understand new concepts?</label><br>
+            <div class="slider-container">
+                <input id="Cat1_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+
+            <br>
+
+            <label for="Cat1_Q2_Score">How useful do you find hands-on activities or practical exercises in your learning process?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q3_Score">How well do you learn from listening to lectures or audio materials?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q4_Score">How helpful are written materials (e.g., textbooks, notes, articles) for your understanding?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q5_Score">How much do you benefit from group discussions or collaborative learning sessions?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Study Habits</h3>
+        <div class="question-tile">
+
+            <label for="Cat2_Q1_Score">How often do you prefer studying in a quiet and solitary environment?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q2_Score">How effective is setting a fixed schedule for your study sessions?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q3_Score">How helpful is revising or summarizing content in your own words for retaining information?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q4_Score">How beneficial do you find using digital tools or apps to organize and manage your study sessions?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q5_Score">How important is breaking study material into smaller, manageable sections for your focus?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Retention and Recall</h3>
+        <div class="question-tile">
+
+            <label for="Cat3_Q1_Score">How confident are you in recalling information after teaching it to someone else?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+        
+            <br>
+
+            <label for="Cat3_Q2_Score">How effective are frequent quizzes or self-assessments in helping you remember what you've learned?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q3_Score">How well do you retain knowledge when connecting it to real-life examples?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q4_Score">How helpful is repeating or revisiting study material over time for long-term retention?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q5_Score">How much do you rely on creating visual representations (e.g., mind maps, charts) for understanding concepts?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Motivation and Focus</h3>
+        <div class="question-tile">
+
+            <label for="Cat4_Q1_Score">How motivated are you to learn when the material is directly relevant to your personal or career goals?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q2_Score">How effective is breaking down large tasks into smaller goals in keeping you focused?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q3_Score">How well do you stay engaged during long periods of uninterrupted study?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q4_Score">How much does having a reward system (e.g., taking breaks, treats) improve your productivity?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q5_Score">How effective are deadlines or external accountability in helping you stay on track with your learning?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+        <button onclick="askChatGPT()" id="submit">Submit</button>
+        <button onclick="downloadPDF()" id="DownloadPDF">Download PDF</button>
+        </div>    
+        
+    <div class="response-container" id="response-container" style="display: none;">
+        <h3>Your Result</h3>
+        <p id="chatgpt-response"></p>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,398 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items from the top */
+    height: auto; /* Remove fixed height to allow scrolling */
+    margin: 0;
+    padding: 20px 0; /* Add padding for better spacing on top and bottom */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* Center the main content area */
+}
+
+.survey-container,
+.response-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.survey-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: var(--container-bg);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-bottom: 20px; /* Add space below survey container */
+}
+
+/* Light and Dark Mode Colors */
+/* :root {
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --container-bg: #ffffff;
+    --tile-bg: #f1f1f1;
+}
+
+.dark-mode {
+    --background-color: #1c1c1c;
+    --text-color: #f9f9f9;
+    --container-bg: #333;
+    --tile-bg: #444;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+} */
+
+/* Light/Dark Mode Toggle Container */
+.mode-switch-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: center;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333; /* Dark background */
+    color: #f4f4f4; /* Light text color */
+}
+
+body.dark-mode .survey-container {
+    background-color: #444; /* Darker background for survey container */
+}
+
+body.dark-mode .slider {
+    background-color: #555; /* Slider background in dark mode */
+}
+
+body.dark-mode .slider:before {
+    background-color: #222; /* Slider handle in dark mode */
+}
+
+
+#submit {
+    padding: 12px 24px; /* Increased padding for better touch targets */
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #4caf50, #388e3c); /* Gradient background */
+    color: #fff;
+    font-size: 1.1em; /* Slightly larger font size */
+    font-weight: bold; /* Bold font for emphasis */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Added transform for scaling effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+}
+
+#submit:hover {
+    background: linear-gradient(135deg, #45a049, #388e3c); /* Darker gradient on hover */
+    transform: translateY(-2px); /* Slight upward movement on hover */
+}
+
+#submit:active {
+    transform: translateY(1px); /* Slight downward movement when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow when clicked */
+}
+
+body.dark-mode #submit {
+    background: linear-gradient(135deg, #76ff03, #5ea600); /* Different gradient for dark mode */
+}
+
+body.dark-mode #submit:hover {
+    background: linear-gradient(135deg, #66bb00, #5ea600); /* Darker gradient on hover in dark mode */
+}
+
+#DownloadPDF {
+    padding: 12px 24px; /* Increased padding for better touch targets */
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #4022ad, #230566); /* Gradient background */
+    color: #fff;
+    font-size: 1.1em; /* Slightly larger font size */
+    font-weight: bold; /* Bold font for emphasis */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Added transform for scaling effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+}
+
+#DownloadPDF:hover {
+    background: linear-gradient(135deg, #4022ad, #230566); /* Darker gradient on hover */
+    transform: translateY(-2px); /* Slight upward movement on hover */
+}
+
+#DownloadPDF:active {
+    transform: translateY(1px); /* Slight downward movement when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow when clicked */
+}
+
+body.dark-mode #DownloadPDF {
+    background: linear-gradient(135deg, #4022ad, #230566); /* Different gradient for dark mode */
+}
+
+body.dark-mode #DownloadPDF:hover {
+    background: linear-gradient(135deg, #4022ad, #230566); /* Darker gradient on hover in dark mode */
+}
+
+
+/* Mode Label Styling */
+#mode-label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+/* Light/Dark Mode Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    display: none;
+}
+
+.switch .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 26px;
+    transition: background-color 0.3s;
+}
+
+.switch .slider:before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+input:checked + .slider {
+    background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* Survey Title */
+.survey-title {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+/* Question Tile */
+.question-tile {
+    background-color: var(--tile-bg);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+    transition: background-color 0.3s;
+}
+
+.slider-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 0;
+    display: block;
+    position: relative;
+}
+.slider-scale {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 0 0px; /* Add some padding to ensure numbers are not cut off */
+    font-size: 0.8em;
+    position: absolute;
+    bottom: -20px; /* Adjust to move the scale closer to the slider */
+    width: 100%;
+}
+
+.slider-scale span {
+    text-align: center; /* Center text within each span */
+}
+
+/* Adjust spacing for each individual span (1 to 10) */
+.slider-scale span:nth-child(1) {
+    margin-right: 11px; /* Adjust space after number 1 */
+}
+
+.slider-scale span:nth-child(2) {
+    margin-right: 11px; /* Adjust space after number 2 */
+}
+
+.slider-scale span:nth-child(3) {
+    margin-right: 11px; /* Adjust space after number 3 */
+}
+
+.slider-scale span:nth-child(4) {
+    margin-right: 11px; /* Adjust space after number 4 */
+}
+
+.slider-scale span:nth-child(5) {
+    margin-right: 11px; /* Adjust space after number 5 */
+}
+
+.slider-scale span:nth-child(6) {
+    margin-right: 11px; /* Adjust space after number 6 */
+}
+
+.slider-scale span:nth-child(7) {
+    margin-right: 11px; /* Adjust space after number 7 */
+}
+
+.slider-scale span:nth-child(8) {
+    margin-right: 11px; /* Adjust space after number 8 */
+}
+
+.slider-scale span:nth-child(9) {
+    margin-right: 7px; /* Adjust space after number 9 */
+}
+
+.slider-scale span:nth-child(10) {
+    margin-right: 0; /* Ensure no margin after the last number */
+}
+
+/* Optional: make first element fully left-bound */
+.slider-scale span:first-child {
+    margin-left: 4px; /* Ensure no left margin */
+}
+
+/* Optional: Adjust last element to fully right-bound */
+.slider-scale span:last-child {
+    margin-right: 1px; /* Ensure no right margin */
+}
+
+
+/* Progress Bar Styles */
+.progress-container {
+    position: fixed;
+    top: 20%;
+    left: 50px; /* Adjust to your preference */
+    width: 20px;
+    height: 60%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: flex-end; /* Start filling from the bottom */
+}
+
+.progress-bar {
+    width: 100%;
+    height: 0%;
+    background-color: #4caf50;
+    transition: height 0.3s ease;
+}
+
+/* Progress Label Styling */
+.progress-label {
+    position: absolute;
+    top: -20px; /* Position above the progress bar */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9em;
+    color: #4caf50;
+    font-weight: bold;
+    display: none; /* Hidden by default */
+}
+
+/* Marker Styling */
+.progress-marker {
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Thin line for the marker */
+    background-color: #ccc; /* Gray color for marker lines */
+}
+
+/* Font Size Buttons */
+.font-size-controls {
+    position: absolute;
+    top: 80px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.75em;
+}
+
+.font-size-controls button {
+    padding: 2px 5px;
+    font-size: .75em;
+    cursor: pointer;
+}
+
+/* Home Button */
+.home-button-container {
+    position: absolute;
+    display: flex;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4caf50; /* Green background */
+    color: white; /* White text */
+    text-decoration: none; /* No underline */
+    font-size: 14px;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Bigger shadow on hover */
+}
+
+/* ChatGPT Response Box */
+.response-container {
+    display: none; /* Hidden initially */
+    margin-top: 20px; /* Space between survey and response */
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    align-self: center;
+}
+
+body.dark-mode .response-container {
+    background-color: #444;
+    color: #f4f4f4;
+}

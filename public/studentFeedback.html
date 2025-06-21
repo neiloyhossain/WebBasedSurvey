@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+</head>
+<body>
+    <div class="home-button-container">
+        <a href="/" class="home-button">Home</a>
+    </div>
+
+    <div class="mode-switch-container">
+        <label id="mode-label">Light/Dark Mode</label>
+        <label class="switch">
+            <input type="checkbox" id="mode-toggle" onclick="toggleMode()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    
+    <div class="progress-container">
+        <div class="progress-label" id="progress-label">Done!</div>
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="progress-marker" style="top: 25%;"></div> <!-- 5 questions marker -->
+        <div class="progress-marker" style="top: 50%;"></div> <!-- 10 questions marker -->
+        <div class="progress-marker" style="top: 75%;"></div> <!-- 15 questions marker -->
+    </div>
+
+    <div class="font-size-controls">
+        <button onclick="decreaseFontSize()">−</button>
+        <span>Font Size</span>
+        <button onclick="increaseFontSize()">+</button>
+    </div>
+
+    <div class="main-container">
+    <div class="survey-container" id="survey">
+        <div class="survey-title">
+            <h2>University Student Feeback Survey</h2>
+        </div>
+
+        <h3>Academic Enviroment</h3>
+
+        <div class="question-tile">
+            
+            <label for="Cat1_Q1_Score">How satisfied are you with the quality of teaching in your courses?</label><br>
+            <div class="slider-container">
+                <input id="Cat1_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+
+            <br>
+
+            <label for="Cat1_Q2_Score">Do you feel your professors are approachable and supportive? </label>
+            <div class="slider-container">
+                <input id="Cat1_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q3_Score">How well do the courses you've taken align with your career goals?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q4_Score"> How sufficient are the academic resources (e.g., libraries, study materials, labs) provided by the university?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q5_Score">How changelling is your coursework?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Campus Facilities & Resources</h3>
+        <div class="question-tile">
+
+            <label for="Cat2_Q1_Score">How would you rate the quality of the campus facilities (e.g., classrooms, gyms, dorms)?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q2_Score">How satisfied are you with the availability of technological resources (e.g., Wi-Fi, computer labs)</label>
+            <div class="slider-container">
+                <input id="Cat2_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q3_Score">How effective do you find the university's support services (e.g., counseling, academic advising)?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q4_Score">How safe do you feel on campus?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q5_Score">How well-maintained do you find the campus?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Social & Community Life</h3>
+        <div class="question-tile">
+
+            <label for="Cat3_Q1_Score">How strong is your sense of belonging within the university community?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+        
+            <br>
+
+            <label for="Cat3_Q2_Score">How satisfied are you with the variety and availability of student organizations and clubs?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q3_Score">How well does the university foster an inclusive and diverse environment?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q4_Score">How well does the university organize social and cultural events for students?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q5_Score">How satisfied are you with the opportunities to interact with other students outside the classroom?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Administration & Communication</h3>
+        <div class="question-tile">
+
+            <label for="Cat4_Q1_Score">How easy is it to communicate with university staff when you have a concern?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q2_Score">How efficient are the university's administrative processes (e.g., registration, financial aid)?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q3_Score">How well does the university keep you informed about important updates and changes?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q4_Score">How much do you feel your feedback is valued by the university administration?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q5_Score">How responsive is the university to addressing student issues or complaints?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+        <button onclick="askChatGPT()" id="submit">Submit</button>
+        <button onclick="downloadPDF()" id="DownloadPDF">Download PDF</button>
+        </div>    
+        
+    <div class="response-container" id="response-container" style="display: none;">
+        <h3>Your Result</h3>
+        <p id="chatgpt-response"></p>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Major Survey</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+</head>
+<body>
+    <div class="home-button-container">
+        <a href="/" class="home-button">Home</a>
+    </div>
+
+    <div class="mode-switch-container">
+        <label id="mode-label">Light/Dark Mode</label>
+        <label class="switch">
+            <input type="checkbox" id="mode-toggle" onclick="toggleMode()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    
+    <div class="progress-container">
+        <div class="progress-label" id="progress-label">Done!</div>
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="progress-marker" style="top: 25%;"></div> <!-- 5 questions marker -->
+        <div class="progress-marker" style="top: 50%;"></div> <!-- 10 questions marker -->
+        <div class="progress-marker" style="top: 75%;"></div> <!-- 15 questions marker -->
+    </div>
+
+    <div class="font-size-controls">
+        <button onclick="decreaseFontSize()">−</button>
+        <span>Font Size</span>
+        <button onclick="increaseFontSize()">+</button>
+    </div>
+
+    <div class="main-container">
+    <div class="survey-container" id="survey">
+        <div class="survey-title">
+            <h2>What College Major Should I Choose?</h2>
+        </div>
+
+        <h3>Interest and Passions</h3>
+
+        <div class="question-tile">
+            
+            <label for="Cat1_Q1_Score">How much do you enjoy working with numbers and data?</label><br>
+            <div class="slider-container">
+                <input id="Cat1_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+
+            <br>
+
+            <label for="Cat1_Q2_Score">How passionate are you about creative projects (e.g., writing, art, music)?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q3_Score">How much do you enjoy solving complex problems or puzzles?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q4_Score">How interested are you in understanding how things work (e.g., technology, science)? </label>
+            <div class="slider-container">
+                <input id="Cat1_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q5_Score">How much do you enjoy collaborating with others on projects?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Skills and Strengths</h3>
+        <div class="question-tile">
+
+            <label for="Cat2_Q1_Score">How confident are you in your communication skills (writing or speaking)?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q2_Score">How comfortable are you with handling technical tasks (coding, lab work, etc.)?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q3_Score">How strong are your organizational and time management skills?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q4_Score">How comfortable are you with public speaking or presenting ideas?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q5_Score">How adept are you at thinking critically and analytically?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Work Style and Environment</h3>
+        <div class="question-tile">
+
+            <label for="Cat3_Q1_Score">How comfortable are you working under pressure or with tight deadlines?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+        
+            <br>
+
+            <label for="Cat3_Q2_Score">How much do you enjoy working in a team setting?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q3_Score">How important is structure and routine to you in your work?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q4_Score">How comfortable are you working independently on long-term projects?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q5_Score">How adaptable are you to changing circumstances or challenges?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Goals and Aspirations</h3>
+        <div class="question-tile">
+
+            <label for="Cat4_Q1_Score">How important is making a positive impact on society in your future career?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q2_Score">How much do you value job stability and financial security in your field?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q3_Score">How important is it to be recognized as a leader or expert in your chosen field?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q4_Score">How much do you value creativity and innovation in your career?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q5_Score">How important is flexibility and work-life balance in your future profession?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+        <button onclick="askChatGPT()" id="submit">Submit</button>
+        <button onclick="downloadPDF()" id="DownloadPDF">Download PDF</button>
+        </div>    
+        
+    <div class="response-container" id="response-container" style="display: none;">
+        <h3>Your Result</h3>
+        <p id="chatgpt-response"></p>
+    </div>
+    </div>
+</body>
+</html>

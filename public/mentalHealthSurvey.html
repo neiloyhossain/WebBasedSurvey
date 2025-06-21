@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Survey</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+    <div class="home-button-container">
+        <a href="/" class="home-button">Home</a>
+    </div>
+
+    <div class="mode-switch-container">
+        <label id="mode-label">Light/Dark Mode</label>
+        <label class="switch">
+            <input type="checkbox" id="mode-toggle" onclick="toggleMode()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="font-size-controls">
+        <button onclick="decreaseFontSize()">−</button>
+        <span>Font Size</span>
+        <button onclick="increaseFontSize()">+</button>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-label" id="progress-label">Done!</div>
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="progress-marker" style="top: 25%;"></div> <!-- 5 questions marker -->
+        <div class="progress-marker" style="top: 50%;"></div> <!-- 10 questions marker -->
+        <div class="progress-marker" style="top: 75%;"></div> <!-- 15 questions marker -->
+    </div>
+
+    <div class="main-container">
+        <div class="survey-container" id="survey">
+        <div class="survey-title">
+            <h2>Student Mental Health and Wellness</h2>
+        </div>
+        
+        <h3>General Mental Health</h3>
+        <div class="question-tile">
+
+            <label for="Cat1_Q1_Score">How would you rate your overall mental health as a college student?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+        
+            <br>
+
+            <label for="Cat1_Q2_Score">How often do you feel stressed or overwhelmed by your academic responsibilities?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q3_Score">How well do you manage stress related to exams, assignments, or deadlines?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q4_Score">How often do you feel emotionally supported by friends, family, or peers?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q5_Score">How satisfied are you with your ability to balance academics, social life, and self-care?</label>
+            <div class="slider-container">
+                <input id="Cat1_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Access to Resources</h3>
+        <div class="question-tile">
+
+            <label for="Cat2_Q1_Score">How aware are you of mental health resources available on campus (e.g., counseling centers, wellness programs)?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q2_Score">How easy is it for you to access professional mental health support at your college?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q3_Score">How satisfied are you with the quality of mental health services provided by your institution?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q4_Score">How often do you use self-care practices (e.g., exercise, hobbies) to maintain your mental health?</label>
+            <div class="slider-container">
+                <input id="Cat2_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q5_Score">How comfortable do you feel discussing mental health concerns with campus staff or counselors?<label>
+            <div class="slider-container">
+                <input id="Cat2_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Academic and Social Environment</h3>
+        <div class="question-tile">
+
+            <label for="Cat3_Q1_Score">How supportive do you feel your professors are when it comes to understanding mental health challenges?:</label>
+            <div class="slider-container">
+                <input id="Cat3_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+        
+            <br>
+
+            <label for="Cat3_Q2_Score">How well does your college foster an inclusive and safe environment for discussing mental health?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q3_Score">How often do you feel the workload at your college contributes to stress or burnout?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q4_Score">How supported do you feel by peers or classmates in handling academic pressures?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q5_Score">How satisfied are you with the availability of mental health awareness events or initiatives on campus?</label>
+            <div class="slider-container">
+                <input id="Cat3_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Coping and Growth</h3>
+        <div class="question-tile">
+
+            <label for="Cat4_Q1_Score">How effective are your personal strategies for coping with academic and personal stress?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q2_Score">How confident are you in recognizing when you need help with your mental health?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q3_Score">How well do you feel your college experience has helped you build resilience to stress?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q4_Score">How supported do you feel in making long-term improvements to your mental health while in college?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q5_Score">How optimistic are you about maintaining or improving your mental health during your college years?</label>
+            <div class="slider-container">
+                <input id="Cat4_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+        <button onclick="askChatGPT()" id="submit">Submit</button>
+        <button onclick="downloadPDF()" id="DownloadPDF">Download PDF</button>
+    </div>
+
+    <div class="response-container" id="response-container" style="display: none;">
+        <h3>Your Result</h3>
+        <p id="chatgpt-response"></p>
+    </div>
+    </div>
+    
+    
+</body>
+</html>

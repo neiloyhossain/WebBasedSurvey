@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+    <div class="home-button-container">
+        <a href="/" class="home-button">Home</a>
+    </div>
+
+    <div class="mode-switch-container">
+        <label id="mode-label">Light/Dark Mode</label>
+        <label class="switch">
+            <input type="checkbox" id="mode-toggle" onclick="toggleMode()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="font-size-controls">
+        <button onclick="decreaseFontSize()">−</button>
+        <span>Font Size</span>
+        <button onclick="increaseFontSize()">+</button>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-label" id="progress-label">Done!</div>
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="progress-marker" style="top: 25%;"></div> <!-- 5 questions marker -->
+        <div class="progress-marker" style="top: 50%;"></div> <!-- 10 questions marker -->
+        <div class="progress-marker" style="top: 75%;"></div> <!-- 15 questions marker -->
+    </div>
+
+    <div class="main-container">
+        <div class="survey-container" id="survey">
+        <div class="survey-title">
+            <h2>Survey Title: Your Feedback Matters!</h2>
+        </div>
+        
+        <h3>Category 1</h3>
+        <div class="question-tile">
+
+            <label for="Cat1_Q1_Score">Question 1:</label>
+            <div class="slider-container">
+                <input id="Cat1_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+        
+            <br>
+
+            <label for="Cat1_Q2_Score">Question 2:</label>
+            <div class="slider-container">
+                <input id="Cat1_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q3_Score">Question 3:</label>
+            <div class="slider-container">
+                <input id="Cat1_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q4_Score">Question 4:</label>
+            <div class="slider-container">
+                <input id="Cat1_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat1_Q5_Score">Question 5:</label>
+            <div class="slider-container">
+                <input id="Cat1_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Category 2</h3>
+        <div class="question-tile">
+
+            <label for="Cat2_Q1_Score">Question 1:</label>
+            <div class="slider-container">
+                <input id="Cat2_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q2_Score">Question 2:</label>
+            <div class="slider-container">
+                <input id="Cat2_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q3_Score">Question 3:</label>
+            <div class="slider-container">
+                <input id="Cat2_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q4_Score">Question 4:</label>
+            <div class="slider-container">
+                <input id="Cat2_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat2_Q5_Score">Question 5:</label>
+            <div class="slider-container">
+                <input id="Cat2_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Category 3</h3>
+        <div class="question-tile">
+
+            <label for="Cat3_Q1_Score">Question 1:</label>
+            <div class="slider-container">
+                <input id="Cat3_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+        
+            <br>
+
+            <label for="Cat3_Q2_Score">Question 2:</label>
+            <div class="slider-container">
+                <input id="Cat3_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q3_Score">Question 3:</label>
+            <div class="slider-container">
+                <input id="Cat3_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q4_Score">Question 4:</label>
+            <div class="slider-container">
+                <input id="Cat3_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat3_Q5_Score">Question 5:</label>
+            <div class="slider-container">
+                <input id="Cat3_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3>Category 4</h3>
+        <div class="question-tile">
+
+            <label for="Cat4_Q1_Score">Question 1:</label>
+            <div class="slider-container">
+                <input id="Cat4_Q1_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q2_Score">Question 2:</label>
+            <div class="slider-container">
+                <input id="Cat4_Q2_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q3_Score">Question 3:</label>
+            <div class="slider-container">
+                <input id="Cat4_Q3_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q4_Score">Question 4:</label>
+            <div class="slider-container">
+                <input id="Cat4_Q4_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+
+            <label for="Cat4_Q5_Score">Question 5:</label>
+            <div class="slider-container">
+                <input id="Cat4_Q5_Score" type="range" min="1" max="10" value="1" oninput="this.nextElementSibling.value = this.value">
+                <div class="slider-scale">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <br>
+        </div>
+        <button onclick="askChatGPT()" id="submit">Submit</button>
+        <button onclick="downloadPDF()" id="DownloadPDF">Download PDF</button>
+    </div>
+
+    <div class="response-container" id="response-container" style="display: none;">
+        <h3>Your Result</h3>
+        <p id="chatgpt-response"></p>
+    </div>
+    </div>
+    
+    
+</body>
+</html>
